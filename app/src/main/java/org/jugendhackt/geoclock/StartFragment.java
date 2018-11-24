@@ -6,9 +6,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import static org.jugendhackt.geoclock.R.layout.start;
@@ -29,12 +32,17 @@ public class StartFragment extends Fragment {
         wertRadius = preferences.getInt(RADIUS, 0);
 
         View rootView = inflater.inflate(start, container, false);
-        TextView adressView = rootView.findViewById(R.id.textView3);
-        adressView.setText(wertAdresse);
-
-        TextView radiusView = rootView.findViewById(R.id.textView4);
-        radiusView.setText(wertRadius + " km");
-
+        final Button go = rootView.findViewById(R.id.button3);
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment = new NewClockFragment();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
         return rootView;
     }
 
