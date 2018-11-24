@@ -3,12 +3,15 @@
 
     <SwitchPreference
         android:defaultValue="false"
+        android:icon="@drawable/ic_vibration"
         android:key="vibration"
         android:title="Vibration" />
     <Preference
+        android:icon="@drawable/ic_alarm"
         android:key="ton"
         android:title="Klingelton" />
     <Preference
         android:key="test"
+        android:icon="@drawable/ic_build"
         android:title="Test" />
 </PreferenceScreen>
