@@ -8,4 +8,7 @@
     <Preference
         android:key="ton"
         android:title="Klingelton" />
+    <Preference
+        android:key="test"
+        android:title="Test" />
 </PreferenceScreen>
