@@ -78,7 +78,7 @@
         android:layout_height="140dp"
         android:layout_alignTop="@+id/textView2"
         android:layout_alignEnd="@+id/textView4"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="-95dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-96dp"
         android:text="Über die Entwickler:           Die Entwickler dieser App Tim, Jonas, Sebastian, Aljoscha und Kilian haben diese App bei Jugend hackt in Ulm entwickelt." />
 </RelativeLayout>
