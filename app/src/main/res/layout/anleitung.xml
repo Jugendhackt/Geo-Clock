@@ -26,12 +26,12 @@
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-34dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginStart="-33dp"
+        android:layout_marginTop="57dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_toEndOf="@+id/textView"
-        android:text="Allgemein:                   Die App soll dir helfen, im Zug oder im Bus oder in der Bahn zu schlafen, ohne deine Haltestelle zu verpassen." />
+        android:text="Allgemein:                   Die App soll dir helfen, im Zug oder im Bus oder in der Straßenbahn zu schlafen, ohne deine Haltestelle zu verpassen." />
 
     <TextView
         android:id="@+id/textView3"
@@ -60,7 +60,7 @@
         android:layout_marginStart="59dp"
         android:layout_marginLeft="59dp"
         android:layout_marginBottom="-32dp"
-        android:text="Du möchtest etwas über die App erfahren oder brauchst hilfe?" />
+        android:text="Du möchtest etwas über die App erfahren oder brauchst Hilfe?" />
 
     <TextView
         android:id="@+id/textView6"
