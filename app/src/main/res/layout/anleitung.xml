@@ -5,51 +5,59 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="252dp"
-        android:layout_height="51dp"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
         android:layout_above="@+id/textView"
+        android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="-49dp"
-        android:text="Du möchtest etwas über die App erfahren oder brauchst Hilfe?" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="166dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView5"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="53dp"
-        android:text="Allgemein:                                Geo-Clock ist ein Wecker, der Ortsabhängig, nicht Zeitabhängig ist! Perfekt für Pendler und Bahnfahrer geeignet, um nie mehr seine Haltestelle zu verpassen! " />
+        android:text="Du möchtest etwas über die App erfahren oder brauchst Hilfe?"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="175dp"
-        android:layout_height="128dp"
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:layout_below="@+id/textView5"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="92dp"
-        android:layout_marginLeft="92dp"
-        android:layout_marginBottom="164dp"
-        android:text="Hilfe:                           Um ... einzustellen drücke..." />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="100dp"
+        android:text="Allgemein: Geo-Clock ist ein Wecker, der Ortsabhängig, nicht Zeitabhängig ist! Perfekt für Pendler und Bahnfahrer geeignet, um nie mehr seine Haltestelle zu verpassen! Hilfe: Um ... einzustellen drücke..."
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="250dp"
-        android:layout_height="68dp"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="61dp"
-        android:layout_marginLeft="61dp"
-        android:layout_marginBottom="11dp"
-        android:text="Über die Entwickler: Die Entwickler dieser App Sebastian, Jonas, Ajoscha, Tim und Kilian haben diese App bei Jugend hackt in Ulm 2018 entwickelt." />
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="Über die Entwickler: Die Entwickler dieser App Sebastian, Jonas, Ajoscha, Tim und Kilian haben diese App bei Jugend hackt in Ulm 2018 entwickelt."
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
+        android:text="Hilfe"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 </RelativeLayout>
