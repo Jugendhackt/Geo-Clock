@@ -53,10 +53,12 @@ public class AlarmActivity extends AppCompatActivity {
                 SharedPreferences shpr =  PreferenceManager.getDefaultSharedPreferences(this);
                 boolean isvibrationon = shpr.getBoolean("vibration", false);
                 Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-                if (Build.VERSION.SDK_INT >= 26) {
-                    vibrator.vibrate(VibrationEffect.createOneShot(5000, VibrationEffect.DEFAULT_AMPLITUDE));
-                }else{
-                    vibrator.vibrate(5000);
+                if (isvibrationon) {
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        vibrator.vibrate(VibrationEffect.createOneShot(5000, VibrationEffect.DEFAULT_AMPLITUDE));
+                    } else {
+                        vibrator.vibrate(5000);
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
