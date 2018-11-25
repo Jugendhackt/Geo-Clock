@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity
 
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
+
+        navigationView.getMenu().getItem(0).setChecked(true);
     }
 
     @Override
