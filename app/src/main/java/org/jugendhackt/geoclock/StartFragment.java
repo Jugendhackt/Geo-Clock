@@ -35,8 +35,8 @@ public class StartFragment extends Fragment {
     String GEOFENCEID = "geofenceid";
     String wertAdresse;
     int wertRadius;
-    double wertLänge = 9.990482;
-    double wertBreite = 48.396465;
+    double wertLänge = 48.396489;
+    double wertBreite = 9.990495;
 
     Geofence mGeofence;
     PendingIntent mGeofencePendingIntent;
@@ -85,6 +85,8 @@ public class StartFragment extends Fragment {
 
                                 Toast toast = Toast.makeText(getActivity(), text, duration);
                                 toast.show();
+
+
                             }
                         })
                         .addOnFailureListener(getActivity(), new OnFailureListener() {
@@ -122,8 +124,8 @@ public class StartFragment extends Fragment {
         Intent intent = new Intent(getActivity(), AlarmActivity.class);
         // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when
         // calling addGeofences() and removeGeofences().
-        mGeofencePendingIntent = PendingIntent.getService(getActivity(), 0, intent, PendingIntent.
-                FLAG_UPDATE_CURRENT);
+        mGeofencePendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.
+                FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
         return mGeofencePendingIntent;
     }
 
