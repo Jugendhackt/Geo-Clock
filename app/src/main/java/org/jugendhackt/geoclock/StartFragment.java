@@ -34,7 +34,7 @@ public class StartFragment extends Fragment {
 
     String ADRESSE = "adresse";
     String RADIUS = "radius";
-    String GEOFENCEID = "geofenceid";
+    public static String GEOFENCEID = "geofenceid";
     String wertAdresse;
     int wertRadius;
     double wertLänge = 48.396489;
@@ -86,6 +86,7 @@ public class StartFragment extends Fragment {
 
                                 Toast toast = Toast.makeText(getActivity(), text, duration);
                                 toast.show();
+
 
 
                             }
