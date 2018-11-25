@@ -21,6 +21,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.concurrent.ExecutionException;
+
 import static org.jugendhackt.geoclock.R.layout.start;
 
 public class NewClockFragment extends Fragment {
@@ -104,7 +106,11 @@ public class NewClockFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(getActivity(),AlarmActivity.class));
+                        try {
+                            getGeofencePendingIntent().send();
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }, 20000);
             }
@@ -138,7 +144,7 @@ public class NewClockFragment extends Fragment {
         // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when
         // calling addGeofences() and removeGeofences().
         mGeofencePendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.
-                FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
+                FLAG_UPDATE_CURRENT);
         return mGeofencePendingIntent;
 
     }
