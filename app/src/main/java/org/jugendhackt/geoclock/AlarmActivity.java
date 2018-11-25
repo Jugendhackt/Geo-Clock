@@ -62,7 +62,7 @@ public class AlarmActivity extends AppCompatActivity {
 
         mGeofencingClient = LocationServices.getGeofencingClient(this);
 
-        mGeofencingClient.removeGeofences(Arrays.asList(new String[] {StartFragment.GEOFENCEID}))
+        mGeofencingClient.removeGeofences(Arrays.asList(new String[] {NewClockFragment.GEOFENCEID}))
                 .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
