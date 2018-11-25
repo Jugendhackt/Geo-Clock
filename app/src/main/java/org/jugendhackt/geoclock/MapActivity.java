@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -43,7 +45,13 @@ public class MapActivity extends AppCompatActivity {
         GeoPoint startPoint = new GeoPoint(Speicher.getFloat("lat",48.39651f),Speicher.getFloat("long",9.9904199f));
         mapController.setCenter(startPoint);
         Markeranzeige(startPoint.getLatitude(),startPoint.getLongitude());
-
+        Button FertigKnopf=findViewById(R.id.fertig_knopf);
+        FertigKnopf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            finish();
+            }
+        });
 
 
         Overlay touchOverlay = new Overlay(this){
