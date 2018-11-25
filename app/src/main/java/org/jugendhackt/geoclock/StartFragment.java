@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,15 +53,14 @@ public class StartFragment extends Fragment {
         wertRadius = preferences.getInt(RADIUS, 1000);
 
         View rootView = inflater.inflate(start, container, false);
+
         /*TextView adressView = rootView.findViewById(R.id.textView3);
         adressView.setText(wertAdresse);
 
         TextView radiusView = rootView.findViewById(R.id.textView4);
         radiusView.setText(wertRadius + " km");
 **/
-        final Button button = (Button) rootView.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+
                 mGeofencingClient = LocationServices.getGeofencingClient(getActivity());
 
                  mGeofence = new Geofence.Builder()
@@ -101,11 +102,33 @@ public class StartFragment extends Fragment {
                                 throw new RuntimeException(e);
                             }
                         });
+
+
+
+
+        final Button go = rootView.findViewById(R.id.button3);
+        final Button help = rootView.findViewById(R.id.helpbtn);
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment = new NewClockFragment();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
             }
-        } );
-
-
-                return rootView;
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment = new HelpFragment();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+        return rootView;
     }
 
 
@@ -127,6 +150,7 @@ public class StartFragment extends Fragment {
         mGeofencePendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.
                 FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
         return mGeofencePendingIntent;
+
     }
 
 }
