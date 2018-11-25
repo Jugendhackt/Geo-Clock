@@ -8,6 +8,8 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,6 +50,14 @@ public class AlarmActivity extends AppCompatActivity {
                 ringtone.setDataSource(this, uri);
                 ringtone.prepare();
                 ringtone.start();
+                SharedPreferences shpr =  PreferenceManager.getDefaultSharedPreferences(this);
+                boolean isvibrationon = shpr.getBoolean("vibration", false);
+                Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+                if (Build.VERSION.SDK_INT >= 26) {
+                    vibrator.vibrate(VibrationEffect.createOneShot(5000, VibrationEffect.DEFAULT_AMPLITUDE));
+                }else{
+                    vibrator.vibrate(5000);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
