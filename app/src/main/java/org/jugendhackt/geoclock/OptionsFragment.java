@@ -44,6 +44,7 @@ public class OptionsFragment extends PreferenceFragmentCompat {
 
             startActivityForResult(intent, 1);
             return true;
+
         } else {
             if (preference.getKey().equals("test")) {
                 startActivity(new Intent(getActivity(), AlarmActivity.class));
