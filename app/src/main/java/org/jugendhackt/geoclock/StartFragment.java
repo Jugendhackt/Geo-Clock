@@ -1,10 +1,14 @@
 package org.jugendhackt.geoclock;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,25 +17,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.location.Geofence;
+import com.google.android.gms.location.GeofencingClient;
+import com.google.android.gms.location.GeofencingRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.Date;
 
 import static org.jugendhackt.geoclock.R.layout.start;
 
 public class StartFragment extends Fragment {
 
-    String ADRESSE = "adresse";
-    String RADIUS = "radius";
-    String wertAdresse;
-    int wertRadius;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        wertAdresse = preferences.getString(ADRESSE, "keine Adresse eingestellt");
-        wertRadius = preferences.getInt(RADIUS, 0);
 
-        View rootView = inflater.inflate(start, container, false);
+                View rootView = inflater.inflate(start, container, false);
+
         final Button go = rootView.findViewById(R.id.button3);
         final Button help = rootView.findViewById(R.id.helpbtn);
         go.setOnClickListener(new View.OnClickListener() {
@@ -56,5 +63,6 @@ public class StartFragment extends Fragment {
         });
         return rootView;
     }
+
 
 }

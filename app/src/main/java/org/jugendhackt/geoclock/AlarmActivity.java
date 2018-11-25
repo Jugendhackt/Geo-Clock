@@ -10,16 +10,26 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.location.GeofencingClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+
 import java.io.IOException;
+import java.util.Arrays;
 
 public class AlarmActivity extends AppCompatActivity {
     MediaPlayer ringtone;
+
+    private GeofencingClient mGeofencingClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +69,28 @@ public class AlarmActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        mGeofencingClient = LocationServices.getGeofencingClient(this);
+
+        mGeofencingClient.removeGeofences(Arrays.asList(new String[] {NewClockFragment.GEOFENCEID}))
+                .addOnSuccessListener(this, new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //TODO
+                    }
+                })
+                .addOnFailureListener(this, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                       //TODO
+                    }
+                });
     }
     @Override
     public void onStop(){
-        ringtone.stop();
-        super.onStop();
+        if(ringtone!=null) {
+            ringtone.stop();
+        }
+            super.onStop();
     }
 }
